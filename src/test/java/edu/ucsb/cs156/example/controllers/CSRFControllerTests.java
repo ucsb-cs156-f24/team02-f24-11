@@ -25,6 +25,7 @@ import org.aspectj.lang.annotation.Before;
 @ActiveProfiles("development")
 @WebMvcTest(controllers = CSRFController.class)
 @Import(TestConfig.class)
+// Test
 public class CSRFControllerTests extends ControllerTestCase {
 
   @MockBean
@@ -33,8 +34,8 @@ public class CSRFControllerTests extends ControllerTestCase {
   @Test
   public void csrf_returns_ok() throws Exception {
     MvcResult response = mockMvc.perform(get("/csrf"))
-              .andExpect(status().isOk())
-              .andReturn();
+        .andExpect(status().isOk())
+        .andReturn();
 
     String responseString = response.getResponse().getContentAsString();
     assertTrue(responseString.contains("parameterName"));
