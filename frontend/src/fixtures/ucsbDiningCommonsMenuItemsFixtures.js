@@ -1,4 +1,4 @@
-const ucsbDiningCommonsMenuItems = {
+const ucsbDiningCommonsMenuItemsFixtures = {
   oneDate: {
     id: 1,
     diningCommonsCode: "DLG",
@@ -27,4 +27,4 @@ const ucsbDiningCommonsMenuItems = {
   ],
 };
 
-export { ucsbDiningCommonsMenuItems };
+export { ucsbDiningCommonsMenuItemsFixtures };
