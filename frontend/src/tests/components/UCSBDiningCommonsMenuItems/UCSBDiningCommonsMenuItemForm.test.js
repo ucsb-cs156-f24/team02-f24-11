@@ -19,6 +19,9 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     );
     await screen.findByText(/Name/);
     await screen.findByText(/Dining Commons Code/);
+    await screen.findByText(/Station/);
+    await screen.findByText(/Create/);
+    await screen.findByText(/Cancel/);
   });
 
   test("Renders correctly when passing in a ucsbDiningCommonsMenuItem", async () => {
