@@ -158,6 +158,9 @@ describe("UCSBDiningCommonsMenuItemsTable tests", () => {
   test("Delete button makes a delete request", async () => {
     const currentUser = { ...currentUserFixtures.adminUser };
 
+    //spy on console log
+    jest.spyOn(console, "log").mockImplementation(() => {});
+
     const axiosMock = new AxiosMockAdapter(axios);
 
     axiosMock
@@ -194,5 +197,10 @@ describe("UCSBDiningCommonsMenuItemsTable tests", () => {
       expect(axiosMock.history.delete.length).toBe(1);
     });
     expect(axiosMock.history.delete[0].params.id).toBe(1);
+
+    expect(console.log).toHaveBeenCalled();
+    const message = console.log.mock.calls[0][0];
+    expect(message["message"]).toMatch("UCSBDiningCommonsMenuItem 1 deleted");
+
   });
 });
