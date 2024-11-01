@@ -201,6 +201,5 @@ describe("UCSBDiningCommonsMenuItemsTable tests", () => {
     expect(console.log).toHaveBeenCalled();
     const message = console.log.mock.calls[0][0];
     expect(message["message"]).toMatch("UCSBDiningCommonsMenuItem 1 deleted");
-
   });
 });
