@@ -11,7 +11,6 @@ import AxiosMockAdapter from "axios-mock-adapter";
 describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
 
-
   const setupUserOnly = () => {
     axiosMock.reset();
     axiosMock.resetHistory();
