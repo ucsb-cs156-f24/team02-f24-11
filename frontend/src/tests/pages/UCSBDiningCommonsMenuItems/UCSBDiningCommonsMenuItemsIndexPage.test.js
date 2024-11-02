@@ -1,14 +1,51 @@
-const mockToast = jest.fn();
+import { render, screen } from "@testing-library/react";
+import UCSBDiningCommonsMenuItemsIndexPage from "main/pages/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemsIndexPage";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { MemoryRouter } from "react-router-dom";
 
-jest.mock("react-toastify", () => {
-  return {
-    toast: () => mockToast,
+import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
+import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
+
+describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
+  const axiosMock = new AxiosMockAdapter(axios);
+
+
+  const setupUserOnly = () => {
+    axiosMock.reset();
+    axiosMock.resetHistory();
+    axiosMock
+      .onGet("/api/currentUser")
+      .reply(200, apiCurrentUserFixtures.userOnly);
+    axiosMock
+      .onGet("/api/systemInfo")
+      .reply(200, systemInfoFixtures.showingNeither);
   };
-});
 
-describe("UCSBDiningCommonsMenuItemsEditPage tests", () => {
-  // since we have stubs, im putting a placeholder test here
-  test("placeholder", () => {
-    expect(1).toBe(1);
+  const queryClient = new QueryClient();
+  test("Renders expected content", async () => {
+    // arrange
+
+    setupUserOnly();
+
+    // act
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UCSBDiningCommonsMenuItemsIndexPage />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    await screen.findByText("Index page not yet implemented");
+
+    // assert
+    expect(
+      screen.getByText("Index page not yet implemented"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Create")).toBeInTheDocument();
+    expect(screen.getByText("Edit")).toBeInTheDocument();
   });
 });
