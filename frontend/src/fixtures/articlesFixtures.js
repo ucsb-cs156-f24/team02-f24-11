@@ -25,7 +25,7 @@ const articlesFixtures = {
       dateAdded: "2020-12-12T12:12:12",
     },
     {
-      id: 1,
+      id: 3,
       title: "Article Three",
       url: "three.com",
       explanation: "This is article three",
