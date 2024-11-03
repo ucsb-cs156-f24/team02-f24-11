@@ -8,7 +8,6 @@ const recommendationRequestFixtures = {
     dateNeeded: '2024-12-03T12:00:00',
     done: false,
   },
-
   threeRecommendationRequests: [
     {
       id: 1,
