@@ -1,9 +1,9 @@
-import React from 'react';
-import RecommendationRequestForm from 'main/components/RecommendationRequest/RecommendationRequestForm';
-import { recommendationRequestFixtures } from 'fixtures/recommendationRequestFixtures';
+import React from "react";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
+import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 
 export default {
-  title: 'components/RecommendationRequest/RecommendationRequestForm',
+  title: "components/RecommendationRequest/RecommendationRequestForm",
   component: RecommendationRequestForm,
 };
 
@@ -14,10 +14,10 @@ const Template = (args) => {
 export const Create = Template.bind({});
 
 Create.args = {
-  buttonLabel: 'Create',
+  buttonLabel: "Create",
   submitAction: (data) => {
-    console.log('Submit was clicked with data: ', data);
-    window.alert('Submit was clicked with data: ' + JSON.stringify(data));
+    console.log("Submit was clicked with data: ", data);
+    window.alert("Submit was clicked with data: " + JSON.stringify(data));
   },
 };
 
@@ -25,9 +25,9 @@ export const Update = Template.bind({});
 
 Update.args = {
   initialContents: recommendationRequestFixtures.oneRecommendationRequest,
-  buttonLabel: 'Update',
+  buttonLabel: "Update",
   submitAction: (data) => {
-    console.log('Submit was clicked with data: ', data);
-    window.alert('Submit was clicked with data: ' + JSON.stringify(data));
+    console.log("Submit was clicked with data: ", data);
+    window.alert("Submit was clicked with data: " + JSON.stringify(data));
   },
 };

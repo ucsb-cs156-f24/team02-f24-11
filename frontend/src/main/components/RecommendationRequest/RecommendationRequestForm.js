@@ -1,11 +1,11 @@
-import { Button, Form, Row, Col } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Button, Form, Row, Col } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 function RecommendationRequestForm({
   initialContents,
   submitAction,
-  buttonLabel = 'Create',
+  buttonLabel = "Create",
 }) {
   // Stryker disable all
   const {
@@ -39,7 +39,7 @@ function RecommendationRequestForm({
                 data-testid="RecommendationRequestForm-id"
                 id="id"
                 type="text"
-                {...register('id')}
+                {...register("id")}
                 value={initialContents.id}
                 disabled
               />
@@ -57,8 +57,8 @@ function RecommendationRequestForm({
               id="requesterEmail"
               type="email"
               isInvalid={Boolean(errors.requesterEmail)}
-              {...register('requesterEmail', {
-                required: 'Requester Email is required.',
+              {...register("requesterEmail", {
+                required: "Requester Email is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -77,8 +77,8 @@ function RecommendationRequestForm({
               id="professorEmail"
               type="email"
               isInvalid={Boolean(errors.professorEmail)}
-              {...register('professorEmail', {
-                required: 'Professor Email is required.',
+              {...register("professorEmail", {
+                required: "Professor Email is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -97,8 +97,8 @@ function RecommendationRequestForm({
               id="explanation"
               type="text"
               isInvalid={Boolean(errors.explanation)}
-              {...register('explanation', {
-                required: 'Explanation is required.',
+              {...register("explanation", {
+                required: "Explanation is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
@@ -119,13 +119,13 @@ function RecommendationRequestForm({
               id="dateRequested"
               type="datetime-local"
               isInvalid={Boolean(errors.dateRequested)}
-              {...register('dateRequested', {
+              {...register("dateRequested", {
                 required: true,
                 pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateRequested && 'Date Requested is required. '}
+              {errors.dateRequested && "Date Requested is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
@@ -140,13 +140,13 @@ function RecommendationRequestForm({
               id="dateNeeded"
               type="datetime-local"
               isInvalid={Boolean(errors.dateNeeded)}
-              {...register('dateNeeded', {
+              {...register("dateNeeded", {
                 required: true,
                 pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.dateNeeded && 'Date Needed is required. '}
+              {errors.dateNeeded && "Date Needed is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
