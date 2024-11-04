@@ -156,7 +156,13 @@ function RecommendationRequestForm({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="done">Done</Form.Label>
-            <Form.Select data-testid="RecommendationRequestForm-done" id="done">
+            <Form.Select
+              data-testid="RecommendationRequestForm-done"
+              id="done"
+              value={
+                initialContents ? initialContents.done.toString() : "false"
+              }
+            >
               <option value="true">True</option>
               <option value="false">False</option>
             </Form.Select>
