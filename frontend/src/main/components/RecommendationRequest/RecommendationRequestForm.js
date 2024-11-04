@@ -91,6 +91,26 @@ function RecommendationRequestForm({
       <Row>
         <Col>
           <Form.Group className="mb-3">
+            <Form.Label htmlFor="explanation">Explanation</Form.Label>
+            <Form.Control
+              data-testid="RecommendationRequestForm-explanation"
+              id="explanation"
+              type="text"
+              isInvalid={Boolean(errors.explanation)}
+              {...register('explanation', {
+                required: 'Explanation is required.',
+              })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.explanation?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col>
+          <Form.Group className="mb-3">
             <Form.Label htmlFor="dateRequested">
               Date Requested (iso format)
             </Form.Label>
@@ -136,14 +156,7 @@ function RecommendationRequestForm({
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="done">Done</Form.Label>
-            <Form.Select
-              data-testid="RecommendationRequestForm-done"
-              id="done"
-              isInvalid={Boolean(errors.done)}
-              {...register('done', {
-                required: true,
-              })}
-            >
+            <Form.Select data-testid="RecommendationRequestForm-done" id="done">
               <option value="true">True</option>
               <option value="false">False</option>
             </Form.Select>

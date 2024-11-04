@@ -19,6 +19,7 @@ describe('RecommendationRequestForm tests', () => {
     );
     await screen.findByText(/Requester Email/);
     await screen.findByText(/Professor Email/);
+    await screen.findByText(/Explanation/);
     await screen.findByText(/Date Requested/);
     await screen.findByText(/Date Needed/);
     await screen.findByText(/Done/);
@@ -54,6 +55,9 @@ describe('RecommendationRequestForm tests', () => {
     const professorEmailField = screen.getByTestId(
       'RecommendationRequestForm-professorEmail'
     );
+    const explanationField = screen.getByTestId(
+      'RecommendationRequestForm-explanation'
+    );
     const dateRequestedField = screen.getByTestId(
       'RecommendationRequestForm-dateRequested'
     );
@@ -65,12 +69,13 @@ describe('RecommendationRequestForm tests', () => {
 
     fireEvent.change(requesterEmailField, { target: { value: 'bad-input' } });
     fireEvent.change(professorEmailField, { target: { value: 'bad-input' } });
+    fireEvent.change(explanationField, { target: { value: 'bad-input' } });
     fireEvent.change(dateRequestedField, { target: { value: 'bad-input' } });
     fireEvent.change(dateNeededField, { target: { value: 'bad-input' } });
     fireEvent.change(doneField, { target: { value: 'bad-input' } });
     fireEvent.click(submitButton);
 
-    // await screen.findByText(/Date Requested must be in ISO format/);
+    await screen.findByText(/Date Requested is required./);
   });
 
   test('Correct Error messsages on missing input', async () => {
@@ -88,10 +93,9 @@ describe('RecommendationRequestForm tests', () => {
     expect(
       screen.getByText(/Professor Email is required./)
     ).toBeInTheDocument();
+    expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
     expect(screen.getByText(/Date Requested is required./)).toBeInTheDocument();
     expect(screen.getByText(/Date Needed is required./)).toBeInTheDocument();
-    expect(screen.getByText(/Date Requested is required./)).toBeInTheDocument();
-    // expect(screen.getByText(/Done is required./)).toBeInTheDocument();
   });
 
   test('No Error messsages on good input', async () => {
@@ -110,6 +114,9 @@ describe('RecommendationRequestForm tests', () => {
     const professorEmailField = screen.getByTestId(
       'RecommendationRequestForm-professorEmail'
     );
+    const explanationField = screen.getByTestId(
+      'RecommendationRequestForm-explanation'
+    );
     const dateRequestedField = screen.getByTestId(
       'RecommendationRequestForm-dateRequested'
     );
@@ -123,7 +130,10 @@ describe('RecommendationRequestForm tests', () => {
       target: { value: 'test@gmail.com' },
     });
     fireEvent.change(professorEmailField, {
-      target: { value: 'test@gmail.com' },
+      target: { value: 'sample@gmail.com' },
+    });
+    fireEvent.change(explanationField, {
+      target: { value: 'test explanation' },
     });
     fireEvent.change(dateRequestedField, {
       target: { value: '2024-11-03T12:00:00' },
@@ -137,13 +147,19 @@ describe('RecommendationRequestForm tests', () => {
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
     expect(
-      screen.queryByText(/QuarterYYYYQ must be in the format YYYYQ/)
+      screen.queryByText(/Requester Email is required./)
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByText(/Date Requested must be in ISO format/)
+      screen.queryByText(/Professor Email is required./)
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByText(/Date Needed must be in ISO format/)
+      screen.queryByText(/Explanation is required./)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Date Requested is required./)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Date Needed is required./)
     ).not.toBeInTheDocument();
   });
 
