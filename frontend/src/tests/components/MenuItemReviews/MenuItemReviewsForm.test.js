@@ -88,7 +88,7 @@ describe("MenuItemReviewsForm tests", () => {
     const mockSubmitAction = jest.fn();
     render(
       <Router>
-        <RMenuItemReviewsForm submitAction={mockSubmitAction} />
+        <MenuItemReviewsForm submitAction={mockSubmitAction} />
       </Router>,
     );
     await screen.findByTestId("MenuItemReviewsForm-itemId");
