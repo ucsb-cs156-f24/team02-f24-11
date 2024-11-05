@@ -49,7 +49,7 @@ describe("UserTable tests", () => {
       "explanation",
       "dateRequested",
       "dateNeeded",
-      "done",
+      "Done",
     ];
     const testId = "RecommendationRequestTable";
 
@@ -113,7 +113,7 @@ describe("UserTable tests", () => {
       "explanation",
       "dateRequested",
       "dateNeeded",
-      "done",
+      "Done",
     ];
     const testId = "RecommendationRequestTable";
 

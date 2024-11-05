@@ -159,7 +159,7 @@ function RecommendationRequestForm({
             <Form.Select
               data-testid="RecommendationRequestForm-done"
               id="done"
-              value={
+              defaultValue={
                 initialContents ? initialContents.done.toString() : "false"
               }
             >
