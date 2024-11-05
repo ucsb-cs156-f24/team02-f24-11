@@ -59,7 +59,7 @@ describe("UCSBDiningCommonsMenuItemsCreatePage tests", () => {
 
     await waitFor(() => {
       expect(
-        screen.queryByText("Create New UCSBDiningCommonsMenuItem"),
+        screen.getByText("Create New UCSBDiningCommonsMenuItem"),
       ).toBeInTheDocument();
     });
   });
@@ -87,7 +87,7 @@ describe("UCSBDiningCommonsMenuItemsCreatePage tests", () => {
 
     await waitFor(() => {
       expect(
-        screen.queryByText("Create New UCSBDiningCommonsMenuItem"),
+        screen.getByText("Create New UCSBDiningCommonsMenuItem"),
       ).toBeInTheDocument();
     });
 

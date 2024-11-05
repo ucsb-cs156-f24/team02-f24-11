@@ -26,7 +26,6 @@ describe("UCSBDiningCommonsMenuItemsIndexPage tests", () => {
   const testId = "UCSBDiningCommonsMenuItemsTable";
 
   const setupUserOnly = () => {
-    const queryClient = new QueryClient();
     axiosMock.reset();
     axiosMock.resetHistory();
     axiosMock
