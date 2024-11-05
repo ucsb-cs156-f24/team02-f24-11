@@ -47,7 +47,7 @@ export default function RecommendationRequestTable({
       accessor: "professorEmail",
     },
     {
-      Header: "explanation",
+      Header: "Explanation",
       accessor: "explanation",
     },
     {

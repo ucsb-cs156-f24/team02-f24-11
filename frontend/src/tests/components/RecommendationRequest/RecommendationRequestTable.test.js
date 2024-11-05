@@ -17,6 +17,56 @@ jest.mock("react-router-dom", () => ({
 describe("UserTable tests", () => {
   const queryClient = new QueryClient();
 
+  test("renders empty table correctly", () => {
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+
+    // act
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <RecommendationRequestTable
+            recommendationRequests={[]}
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
+    const expectedHeaders = [
+      "id",
+      "Requester Email",
+      "Professor Email",
+      "Explanation",
+      "Date Requested",
+      "Date Needed",
+      "Done",
+    ];
+    const expectedFields = [
+      "id",
+      "requesterEmail",
+      "professorEmail",
+      "explanation",
+      "dateRequested",
+      "dateNeeded",
+      "Done",
+    ];
+    const testId = "RecommendationRequestTable";
+
+    // assert
+    expectedHeaders.forEach((headerText) => {
+      const header = screen.getByText(headerText);
+      expect(header).toBeInTheDocument();
+    });
+
+    expectedFields.forEach((field) => {
+      const fieldElement = screen.queryByTestId(
+        `${testId}-cell-row-0-col-${field}`,
+      );
+      expect(fieldElement).not.toBeInTheDocument();
+    });
+  });
+
   test("Has the expected column headers and content for ordinary user", () => {
     const currentUser = currentUserFixtures.userOnly;
 
@@ -37,7 +87,7 @@ describe("UserTable tests", () => {
       "id",
       "Requester Email",
       "Professor Email",
-      "explanation",
+      "Explanation",
       "Date Requested",
       "Date Needed",
       "Done",
@@ -101,7 +151,7 @@ describe("UserTable tests", () => {
       "id",
       "Requester Email",
       "Professor Email",
-      "explanation",
+      "Explanation",
       "Date Requested",
       "Date Needed",
       "Done",
