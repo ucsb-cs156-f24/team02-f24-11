@@ -34,7 +34,7 @@ describe("ArticlesEditPage tests", () => {
         <MemoryRouter>
           <ArticlesEditPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert

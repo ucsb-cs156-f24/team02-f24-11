@@ -21,11 +21,10 @@ export default function AppNavbar({
         variant="dark"
         bg="dark"
         sticky="top"
-        data-testid="AppNavbar">
+        data-testid="AppNavbar"
+      >
         <Container>
-          <Navbar.Brand
-            as={Link}
-            to="/">
+          <Navbar.Brand as={Link} to="/">
             Example
           </Navbar.Brand>
 
@@ -54,40 +53,29 @@ export default function AppNavbar({
                 <NavDropdown
                   title="Admin"
                   id="appnavbar-admin-dropdown"
-                  data-testid="appnavbar-admin-dropdown">
+                  data-testid="appnavbar-admin-dropdown"
+                >
                   <NavDropdown.Item href="/admin/users">Users</NavDropdown.Item>
                 </NavDropdown>
               )}
               {currentUser && currentUser.loggedIn ? (
                 <>
-                  <Nav.Link
-                    as={Link}
-                    to="/restaurants">
+                  <Nav.Link as={Link} to="/restaurants">
                     Restaurants
                   </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/ucsbdates">
+                  <Nav.Link as={Link} to="/ucsbdates">
                     UCSB Dates
                   </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/ucsbdiningcommonsmenuitems">
+                  <Nav.Link as={Link} to="/ucsbdiningcommonsmenuitems">
                     UCSB Dining Commons Menu Items
                   </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/RecommendationRequest">
+                  <Nav.Link as={Link} to="/RecommendationRequest">
                     Recommendation Requests
                   </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/articles">
+                  <Nav.Link as={Link} to="/articles">
                     Articles
                   </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/placeholder">
+                  <Nav.Link as={Link} to="/placeholder">
                     Placeholder
                   </Nav.Link>
                 </>
@@ -99,10 +87,7 @@ export default function AppNavbar({
             <Nav className="ml-auto">
               {currentUser && currentUser.loggedIn ? (
                 <>
-                  <Navbar.Text
-                    className="me-3"
-                    as={Link}
-                    to="/profile">
+                  <Navbar.Text className="me-3" as={Link} to="/profile">
                     Welcome, {currentUser.root.user.email}
                   </Navbar.Text>
                   <Button onClick={doLogout}>Log Out</Button>
