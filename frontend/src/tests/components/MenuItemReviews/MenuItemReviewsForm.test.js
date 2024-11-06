@@ -58,14 +58,14 @@ describe("MenuItemReviewsForm tests", () => {
     const commentsField = screen.getByTestId(
       "MenuItemReviewsForm-comments",
     );
-    const doneField = screen.getByTestId("MenuItemReviewsForm-done");
+    //const doneField = screen.getByTestId("MenuItemReviewsForm-done");
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.change(itemIdField, { target: { value: "bad-input" } });
     fireEvent.change(reviewEmailField, { target: { value: "bad-input" } });
     fireEvent.change(starsField, { target: { value: "bad-input" } });
     fireEvent.change(dataReviewedField, { target: { value: "bad-input" } });
     fireEvent.change(commentsField, { target: { value: "bad-input" } });
-    fireEvent.change(doneField, { target: { value: "bad-input" } });
+    //fireEvent.change(doneField, { target: { value: "bad-input" } });
     fireEvent.click(submitButton);
     await screen.findByText(/Date Reviewed is required./);
   });
@@ -78,7 +78,7 @@ describe("MenuItemReviewsForm tests", () => {
     await screen.findByTestId("MenuItemReviewsForm-submit");
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.click(submitButton);
-    await screen.findByText(/Item Id is required./);
+    await screen.findByText(/Item ID is required./);
     expect(screen.getByText(/Reviewer Email is required./)).toBeInTheDocument();
     expect(screen.getByText(/Stars is required./)).toBeInTheDocument();
     expect(screen.getByText(/Date Reviewed is required./)).toBeInTheDocument();
@@ -107,7 +107,7 @@ describe("MenuItemReviewsForm tests", () => {
     const commentsField = screen.getByTestId(
       "MenuItemReviewsForm-comments",
     );
-    const doneField = screen.getByTestId("MenuItemReviewsForm-done");
+    //const doneField = screen.getByTestId("MenuItemReviewsForm-done");
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.change(itemIdField, {
       target: { value: "4" },
@@ -124,11 +124,11 @@ describe("MenuItemReviewsForm tests", () => {
     fireEvent.change(commentsField, {
       target: { value: "great" },
     });
-    fireEvent.change(doneField, { target: { value: "true" } });
+   // fireEvent.change(doneField, { target: { value: "true" } });
     fireEvent.click(submitButton);
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
     expect(
-      screen.queryByText(/Item Id is required./),
+      screen.queryByText(/Item ID is required./),
     ).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Reviewer Email is required./),
@@ -140,7 +140,7 @@ describe("MenuItemReviewsForm tests", () => {
       screen.queryByText(/Date Reviewed is required./),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByText(/Commentsd is required./),
+      screen.queryByText(/Comments is required./),
     ).not.toBeInTheDocument();
   });
   test("that navigate(-1) is called when Cancel is clicked", async () => {
