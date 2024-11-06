@@ -124,7 +124,6 @@ function ArticleForm({
                 required: "Date added is required.",
                 pattern: {
                   value: isodate_regex,
-                  message: "Date added must be in ISO format",
                 },
               })}
             />

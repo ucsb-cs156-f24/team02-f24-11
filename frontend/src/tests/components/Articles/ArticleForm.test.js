@@ -15,7 +15,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm />
-      </Router>
+      </Router>,
     );
     await screen.findByText(/Title/);
     await screen.findByText(/Create/);
@@ -25,7 +25,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm initialContents={articlesFixtures.oneArticle} />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId(/ArticleForm-id/);
     expect(screen.getByText(/Id/)).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("ArticleForm-dateAdded");
     const dateAddedField = screen.getByTestId("ArticleForm-dateAdded");
@@ -52,7 +52,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("ArticleForm-submit");
     const submitButton = screen.getByTestId("ArticleForm-submit");
@@ -72,7 +72,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm submitAction={mockSubmitAction} />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("ArticleForm-title");
 
@@ -97,7 +97,7 @@ describe("ArticleForm tests", () => {
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
     expect(
-      screen.queryByText(/Date added must be in ISO format/)
+      screen.queryByText(/Date added must be in ISO format/),
     ).not.toBeInTheDocument();
   });
 
@@ -105,7 +105,7 @@ describe("ArticleForm tests", () => {
     render(
       <Router>
         <ArticleForm />
-      </Router>
+      </Router>,
     );
     await screen.findByTestId("ArticleForm-cancel");
     const cancelButton = screen.getByTestId("ArticleForm-cancel");
