@@ -122,9 +122,7 @@ function ArticleForm({
               isInvalid={Boolean(errors.dateAdded)}
               {...register("dateAdded", {
                 required: "Date added is required.",
-                pattern: {
-                  value: isodate_regex,
-                },
+                pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
