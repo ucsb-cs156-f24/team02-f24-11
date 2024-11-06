@@ -26,8 +26,6 @@ function HelpRequestForm({
   // Stryker restore Regex
 
   // Stryker disable next-line all
-  const yyyyq_regex = /((19)|(20))\d{2}[1-4]/i; // Accepts from 1900-2099 followed by 1-4.  Close enough.
-
   return (
     <Form onSubmit={handleSubmit(submitAction)}>
       <Row>
@@ -82,43 +80,76 @@ function HelpRequestForm({
           </Form.Group>
         </Col>
 
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="tableOrBreakoutRoom">TableOrBreakoutRoom</Form.Label>
+            <Form.Control
+              data-testid="HelpRequestForm-tableOrBreakoutRoom"
+              id="tableOrBreakoutRoom"
+              type="text"
+              isInvalid={Boolean(errors.teamId)}
+              {...register("tableOrBreakoutRoom", {
+                required: "tableOrBreakoutRoom is required.",
+              })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.tableOrBreakoutRoom?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+
     
 
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="localDateTime">Date (iso format)</Form.Label>
+            <Form.Label htmlFor="requestTime">Date (iso format)</Form.Label>
             <Form.Control
-              data-testid="HelpRequestForm-localDateTime"
-              id="localDateTime"
+              data-testid="HelpRequestForm-requestTime"
+              id="requestTime"
               type="datetime-local"
-              isInvalid={Boolean(errors.localDateTime)}
-              {...register("localDateTime", {
+              isInvalid={Boolean(errors.requestTime)}
+              {...register("requestTime", {
                 required: true,
                 pattern: isodate_regex,
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.localDateTime && "LocalDateTime is required. "}
+              {errors.requestTime && "requestTime is required. "}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
-      </Row>
 
-      <Row>
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="name">Name</Form.Label>
+            <Form.Label htmlFor="explanation">Explanation</Form.Label>
             <Form.Control
-              data-testid="HelpRequestForm-name"
-              id="name"
+              data-testid="HelpRequestForm-explanation"
+              id="explanation"
               type="text"
-              isInvalid={Boolean(errors.name)}
-              {...register("name", {
-                required: "Name is required.",
+              isInvalid={Boolean(errors.requesterEmail)}
+              {...register("explanation", {
+                required: "explanation is required.",
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.name?.message}
+              {errors.explanation?.message}
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+
+        <Col>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="solved">Solved</Form.Label>
+            <Form.Control
+              data-testid="HelpRequestForm-solved"
+              id="solved"
+              type="checkbox"
+              isInvalid={Boolean(errors.solved)}
+              {...register("solved", {
+              })}
+            />
+            <Form.Control.Feedback type="invalid">
+              {errors.solved?.message}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
