@@ -26,9 +26,7 @@ describe("MenuItemReviewsForm tests", () => {
     render(
       <Router>
         <MenuItemReviewsForm
-          initialContents={
-            menuItemReviewsFixtures.oneReview
-          }
+          initialContents={menuItemReviewsFixtures.oneReview}
         />
       </Router>,
     );
@@ -43,21 +41,15 @@ describe("MenuItemReviewsForm tests", () => {
       </Router>,
     );
     await screen.findByTestId("MenuItemReviewsForm-submit");
-    const itemIdField = screen.getByTestId(
-      "MenuItemReviewsForm-itemId",
-    );
+    const itemIdField = screen.getByTestId("MenuItemReviewsForm-itemId");
     const reviewEmailField = screen.getByTestId(
       "MenuItemReviewsForm-reviewEmail",
     );
-    const starsField = screen.getByTestId(
-      "MenuItemReviewsForm-stars",
-    );
+    const starsField = screen.getByTestId("MenuItemReviewsForm-stars");
     const dataReviewedField = screen.getByTestId(
       "MenuItemReviewsForm-dateReviewed",
     );
-    const commentsField = screen.getByTestId(
-      "MenuItemReviewsForm-comments",
-    );
+    const commentsField = screen.getByTestId("MenuItemReviewsForm-comments");
     //const doneField = screen.getByTestId("MenuItemReviewsForm-done");
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.change(itemIdField, { target: { value: "bad-input" } });
@@ -92,21 +84,15 @@ describe("MenuItemReviewsForm tests", () => {
       </Router>,
     );
     await screen.findByTestId("MenuItemReviewsForm-itemId");
-    const itemIdField = screen.getByTestId(
-      "MenuItemReviewsForm-itemId",
-    );
+    const itemIdField = screen.getByTestId("MenuItemReviewsForm-itemId");
     const reviewEmailField = screen.getByTestId(
       "MenuItemReviewsForm-reviewEmail",
     );
-    const starsField = screen.getByTestId(
-      "MenuItemReviewsForm-stars",
-    );
+    const starsField = screen.getByTestId("MenuItemReviewsForm-stars");
     const dateReviewedField = screen.getByTestId(
       "MenuItemReviewsForm-dateReviewed",
     );
-    const commentsField = screen.getByTestId(
-      "MenuItemReviewsForm-comments",
-    );
+    const commentsField = screen.getByTestId("MenuItemReviewsForm-comments");
     //const doneField = screen.getByTestId("MenuItemReviewsForm-done");
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.change(itemIdField, {
@@ -124,24 +110,18 @@ describe("MenuItemReviewsForm tests", () => {
     fireEvent.change(commentsField, {
       target: { value: "great" },
     });
-   // fireEvent.change(doneField, { target: { value: "true" } });
+    // fireEvent.change(doneField, { target: { value: "true" } });
     fireEvent.click(submitButton);
     await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
-    expect(
-      screen.queryByText(/Item ID is required./),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/Item ID is required./)).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Reviewer Email is required./),
     ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(/Stars is required./),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/Stars is required./)).not.toBeInTheDocument();
     expect(
       screen.queryByText(/Date Reviewed is required./),
     ).not.toBeInTheDocument();
-    expect(
-      screen.queryByText(/Comments is required./),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText(/Comments is required./)).not.toBeInTheDocument();
   });
   test("that navigate(-1) is called when Cancel is clicked", async () => {
     render(

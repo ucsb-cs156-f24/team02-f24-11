@@ -144,7 +144,7 @@ function MenuItemReviewsForm({
           </Form.Group>
         </Col>
       </Row>
-      
+
       <Row>
         <Col>
           <Button type="submit" data-testid="MenuItemReviewsForm-submit">
