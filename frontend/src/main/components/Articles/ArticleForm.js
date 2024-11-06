@@ -134,15 +134,14 @@ function ArticleForm({
 
       <Row>
         <Col>
-          <Button
-            type="submit"
-            data-testid="ArticleForm-submit">
+          <Button type="submit" data-testid="ArticleForm-submit">
             {buttonLabel}
           </Button>
           <Button
             variant="Secondary"
             onClick={() => navigate(-1)}
-            data-testid="ArticleForm-cancel">
+            data-testid="ArticleForm-cancel"
+          >
             Cancel
           </Button>
         </Col>
