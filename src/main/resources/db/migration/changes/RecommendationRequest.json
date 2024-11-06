@@ -2,8 +2,8 @@
   "databaseChangeLog": [
     {
       "changeSet": {
-        "id": "Users-1",
-        "author": "MattP",
+        "id": "RecommendationRequests-1",
+        "author": "Brian",
         "preConditions": [
           {
             "onFail": "MARK_RAN"
@@ -12,7 +12,7 @@
             "not": [
               {
                 "tableExists": {
-                  "tableName": "USERS"
+                  "tableName": "RECOMMENDATIONREQUEST"
                 }
               }
             ]
@@ -27,7 +27,7 @@
                     "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
-                      "primaryKeyName": "CONSTRAINT_4"
+                      "primaryKeyName": "RECOMMENDATIONREQUESTS_PK"
                     },
                     "name": "ID",
                     "type": "BIGINT"
@@ -38,13 +38,7 @@
                     "constraints": {
                       "nullable": false
                     },
-                    "name": "ADMIN",
-                    "type": "BOOLEAN"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "EMAIL",
+                    "name": "REQUESTER_EMAIL",
                     "type": "VARCHAR(255)"
                   }
                 },
@@ -53,54 +47,48 @@
                     "constraints": {
                       "nullable": false
                     },
-                    "name": "EMAIL_VERIFIED",
+                    "name": "PROFESSOR_EMAIL",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "EXPLANATION",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "DATE_REQUESTED",
+                    "type": "TIMESTAMP"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "DATE_NEEDED",
+                    "type": "TIMESTAMP"
+                  }
+                },
+                {
+                  "column": {
+                    "constraints": {
+                      "nullable": false
+                    },
+                    "name": "DONE",
                     "type": "BOOLEAN"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "FAMILY_NAME",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "FULL_NAME",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "GIVEN_NAME",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "GOOGLE_SUB",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "HOSTED_DOMAIN",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "LOCALE",
-                    "type": "VARCHAR(255)"
-                  }
-                },
-                {
-                  "column": {
-                    "name": "PICTURE_URL",
-                    "type": "VARCHAR(255)"
                   }
                 }
               ],
-              "tableName": "USERS"
+              "tableName": "RECOMMENDATIONREQUEST"
             }
           }
         ]
