@@ -48,17 +48,14 @@ export default function MenuItemReviewsTable({ dates, currentUser }) {
       accessor: "stars",
     },
     {
-       Header: "dateReviewed",
-       accessor: "dateReviewed",
+      Header: "dateReviewed",
+      accessor: "dateReviewed",
     },
     {
-        Header: "comments",
-        accessor: "comments",
+      Header: "comments",
+      accessor: "comments",
     },
   ];
-
-
-
 
   if (hasRole(currentUser, "ROLE_ADMIN")) {
     columns.push(
@@ -69,5 +66,7 @@ export default function MenuItemReviewsTable({ dates, currentUser }) {
     );
   }
 
-  return <OurTable data={dates} columns={columns} testid={"MenuItemReviewsTable"} />;
+  return (
+    <OurTable data={dates} columns={columns} testid={"MenuItemReviewsTable"} />
+  );
 }
