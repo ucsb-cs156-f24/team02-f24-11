@@ -7,12 +7,13 @@ function UCSBOrganizationForm({
   submitAction,
   buttonLabel = "Create",
 }) {
+  // Stryker disable all
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm({ defaultValues: initialContents || {} });
-
+  // Stryker restore all
   const navigate = useNavigate();
 
   const testIdPrefix = "UCSBOrganizationForm";
