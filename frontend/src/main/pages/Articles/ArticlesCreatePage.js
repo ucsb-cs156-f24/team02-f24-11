@@ -18,14 +18,14 @@ export default function ArticlesCreatePage({ storybook = false }) {
   });
 
   const onSuccess = (article) => {
-    toast(`New article Created - id: ${article.id} name: ${article.name}`);
+    toast(`New article Created - id: ${article.id} title: ${article.title}`);
   };
 
   const mutation = useBackendMutation(
     objectToAxiosParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    ["/api/articles/all"]
+    ["/api/articles/all"],
   );
 
   const { isSuccess } = mutation;

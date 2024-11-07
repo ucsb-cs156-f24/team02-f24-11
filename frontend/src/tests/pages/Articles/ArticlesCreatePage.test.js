@@ -52,7 +52,7 @@ describe("ArticlesCreatePage tests", () => {
         <MemoryRouter>
           <ArticlesCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {
@@ -78,7 +78,7 @@ describe("ArticlesCreatePage tests", () => {
         <MemoryRouter>
           <ArticlesCreatePage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() => {
@@ -92,7 +92,7 @@ describe("ArticlesCreatePage tests", () => {
     const dateAddedField = screen.getByTestId("ArticleForm-dateAdded");
     const submitButton = screen.getByTestId("ArticleForm-submit");
 
-    fireEvent.change(titleField, { target: { value: "title" } });
+    fireEvent.change(titleField, { target: { value: "Article Title" } });
     fireEvent.change(urlField, { target: { value: "url" } });
     fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(emailField, { target: { value: "email" } });
@@ -107,7 +107,7 @@ describe("ArticlesCreatePage tests", () => {
     await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
     expect(axiosMock.history.post[0].params).toEqual({
-      title: "title",
+      title: "Article Title",
       url: "url",
       explanation: "explanation",
       email: "email",
@@ -115,7 +115,7 @@ describe("ArticlesCreatePage tests", () => {
     });
 
     expect(mockToast).toBeCalledWith(
-      "New article Created - id: 17 title: title"
+      "New article Created - id: 17 title: New article",
     );
     expect(mockNavigate).toBeCalledWith({ to: "/articles" });
   });
