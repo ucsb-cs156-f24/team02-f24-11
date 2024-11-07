@@ -29,7 +29,7 @@ describe("UCSBOrganizationForm tests", () => {
         <Router>
           <UCSBOrganizationForm />
         </Router>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
@@ -41,7 +41,9 @@ describe("UCSBOrganizationForm tests", () => {
 
     expect(screen.getByTestId(`${testId}-inactive`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-orgCode`)).toBeInTheDocument();
-    expect(screen.getByTestId(`${testId}-orgTranslationShort`)).toBeInTheDocument();
+    expect(
+      screen.getByTestId(`${testId}-orgTranslationShort`),
+    ).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-orgTranslation`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-submit`)).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-cancel`)).toBeInTheDocument();
@@ -51,9 +53,11 @@ describe("UCSBOrganizationForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization[0]} />
+          <UCSBOrganizationForm
+            initialContents={ucsbOrganizationFixtures.oneOrganization[0]}
+          />
         </Router>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
@@ -64,7 +68,9 @@ describe("UCSBOrganizationForm tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-orgCode`)).toBeInTheDocument();
-    expect(screen.getByTestId(`${testId}-orgTranslationShort`)).toBeInTheDocument();
+    expect(
+      screen.getByTestId(`${testId}-orgTranslationShort`),
+    ).toBeInTheDocument();
     expect(screen.getByTestId(`${testId}-orgTranslation`)).toBeInTheDocument();
   });
 
@@ -74,7 +80,7 @@ describe("UCSBOrganizationForm tests", () => {
         <Router>
           <UCSBOrganizationForm />
         </Router>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     const cancelButton = screen.getByTestId(`${testId}-cancel`);
@@ -89,7 +95,7 @@ describe("UCSBOrganizationForm tests", () => {
         <Router>
           <UCSBOrganizationForm />
         </Router>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
