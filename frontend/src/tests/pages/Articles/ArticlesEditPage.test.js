@@ -61,7 +61,7 @@ describe("ArticlesEditPage tests", () => {
           <MemoryRouter>
             <ArticlesEditPage />
           </MemoryRouter>
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
       await screen.findByText("Edit Article");
       expect(screen.queryByTestId("ArticleForm-title")).not.toBeInTheDocument();
@@ -106,7 +106,7 @@ describe("ArticlesEditPage tests", () => {
           <MemoryRouter>
             <ArticlesEditPage />
           </MemoryRouter>
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
 
       await screen.findByTestId("ArticleForm-title");
@@ -118,7 +118,7 @@ describe("ArticlesEditPage tests", () => {
           <MemoryRouter>
             <ArticlesEditPage />
           </MemoryRouter>
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
 
       await screen.findByTestId("ArticleForm-title");
@@ -146,7 +146,7 @@ describe("ArticlesEditPage tests", () => {
           <MemoryRouter>
             <ArticlesEditPage />
           </MemoryRouter>
-        </QueryClientProvider>
+        </QueryClientProvider>,
       );
 
       await screen.findByTestId("ArticleForm-title");
@@ -182,7 +182,7 @@ describe("ArticlesEditPage tests", () => {
 
       await waitFor(() => expect(mockToast).toBeCalled());
       expect(mockToast).toBeCalledWith(
-        "Article Updated - id: 17 title: New article"
+        "Article Updated - id: 17 title: New article",
       );
       expect(mockNavigate).toBeCalledWith({ to: "/articles" });
 
@@ -195,7 +195,7 @@ describe("ArticlesEditPage tests", () => {
           explanation: "New explanation",
           email: "New email",
           dateAdded: "2022-02-02T11:11",
-        })
+        }),
       ); // posted object
     });
   });
