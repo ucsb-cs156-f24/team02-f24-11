@@ -66,7 +66,7 @@ describe("ArticlesCreatePage tests", () => {
       id: 17,
       title: "New article",
       url: "Articleurl",
-      description: "Article description",
+      explanation: "Article explanation",
       email: "Article email",
       dateAdded: "2022-02-02T00:00",
     };
@@ -87,14 +87,14 @@ describe("ArticlesCreatePage tests", () => {
 
     const titleField = screen.getByTestId("ArticleForm-title");
     const urlField = screen.getByTestId("ArticleForm-url");
-    const descriptionField = screen.getByTestId("ArticleForm-description");
+    const explanationField = screen.getByTestId("ArticleForm-explanation");
     const emailField = screen.getByTestId("ArticleForm-email");
     const dateAddedField = screen.getByTestId("ArticleForm-dateAdded");
     const submitButton = screen.getByTestId("ArticleForm-submit");
 
     fireEvent.change(titleField, { target: { value: "title" } });
     fireEvent.change(urlField, { target: { value: "url" } });
-    fireEvent.change(descriptionField, { target: { value: "description" } });
+    fireEvent.change(explanationField, { target: { value: "explanation" } });
     fireEvent.change(emailField, { target: { value: "email" } });
     fireEvent.change(dateAddedField, {
       target: { value: "2022-02-02T00:00" },
@@ -109,7 +109,7 @@ describe("ArticlesCreatePage tests", () => {
     expect(axiosMock.history.post[0].params).toEqual({
       title: "title",
       url: "url",
-      description: "description",
+      explanation: "explanation",
       email: "email",
       dateAdded: "2022-02-02T00:00",
     });
