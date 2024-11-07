@@ -7,12 +7,11 @@ import { http, HttpResponse } from "msw";
 import MenuItemReviewsEditPage from "main/pages/MenuItemReviewss/MenuItemReviewsEditPage";
 
 const MenuItemReviewsEditPageStory = {
-    title: "pages/MenuItemReviews/MenuItemReviewsEditPage",
-    component: MenuItemReviewsEditPage,
-  };
-  
-  export default MenuItemReviewsEditPageStory;
-  
+  title: "pages/MenuItemReviews/MenuItemReviewsEditPage",
+  component: MenuItemReviewsEditPage,
+};
+
+export default MenuItemReviewsEditPageStory;
 
 const Template = () => <MenuItemReviewsEditPage storybook={true} />;
 
