@@ -72,7 +72,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            menuItemReviews={
+            review={
                 menuItemReviewsFixtures.threeReview
             }
             currentUser={currentUser}
@@ -138,7 +138,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            menuItemReviews={
+            review={
                 menuItemReviewsFixtures.threeReview
             }
             currentUser={currentUser}
@@ -206,7 +206,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            menuItemReviews={
+            review={
                 menuItemReviewsFixtures.threeReview
             }
             currentUser={currentUser}
@@ -230,7 +230,7 @@ describe("UserTable tests", () => {
 
     await waitFor(() =>
       expect(mockedNavigate).toHaveBeenCalledWith(
-        "/menuitemreview/edit/1",
+        "/menuitemreviews/edit/1",
       ),
     );
   });
