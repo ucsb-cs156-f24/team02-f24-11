@@ -9,11 +9,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function MenuItemReviewsTable({ dates, currentUser }) {
+export default function MenuItemReviewsTable({ review, currentUser }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/menuitemreview/edit/${cell.row.values.id}`);
+    navigate(`/menuitemreviews/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -67,6 +67,6 @@ export default function MenuItemReviewsTable({ dates, currentUser }) {
   }
 
   return (
-    <OurTable data={dates} columns={columns} testid={"MenuItemReviewsTable"} />
+    <OurTable data={review} columns={columns} testid={"MenuItemReviewsTable"} />
   );
 }

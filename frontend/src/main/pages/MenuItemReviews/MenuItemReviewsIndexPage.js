@@ -14,7 +14,7 @@ export default function MenuItemReviewsIndexPage() {
       return (
         <Button
           variant="primary"
-          href="/menuitemreview/create"
+          href="/menuitemreviews/create"
           style={{ float: "right" }}
         >
           Create MenuItemReviews
@@ -24,7 +24,7 @@ export default function MenuItemReviewsIndexPage() {
   };
 
   const {
-    data: dates,
+    data: review,
     error: _error,
     status: _status,
   } = useBackend(
@@ -39,7 +39,7 @@ export default function MenuItemReviewsIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>MenuItemReviews</h1>
-        <MenuItemReviewsTable dates={dates} currentUser={currentUser} />
+        <MenuItemReviewsTable review={review} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );

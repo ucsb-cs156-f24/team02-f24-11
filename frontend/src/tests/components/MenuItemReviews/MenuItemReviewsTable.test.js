@@ -73,7 +73,7 @@ describe("UserTable tests", () => {
         <MemoryRouter>
           <MenuItemReviewsTable
             menuItemReviews={
-                menuItemReviewsFixtures.threeRecommendationRequests
+                menuItemReviewsFixtures.threeReview
             }
             currentUser={currentUser}
           />
@@ -245,18 +245,7 @@ describe("UserTable tests", () => {
       .reply(200, { message: "Menu Item Review deleted" });
 
     // act - render the component
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <MenuItemReviewsTable
-            menuItemReviews={
-                menuItemReviewsFixtures.threeReview
-            }
-            currentUser={currentUser}
-          />
-        </MemoryRouter>
-      </QueryClientProvider>,
-    );
+
 
     // assert - check that the expected content is rendered
 
