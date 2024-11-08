@@ -26,7 +26,9 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            menuItemReviews={[]}
+            review={
+              menuItemReviewsFixtures.threeReview
+          }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -61,9 +63,12 @@ describe("UserTable tests", () => {
       const fieldElement = screen.queryByTestId(
         `${testId}-cell-row-0-col-${field}`,
       );
-      expect(fieldElement).not.toBeInTheDocument();
+      expect(fieldElement).toBeInTheDocument();
     });
   });
+
+
+
 
   test("Has the expected column headers and content for ordinary user", () => {
     const currentUser = currentUserFixtures.userOnly;
@@ -133,6 +138,12 @@ describe("UserTable tests", () => {
     );
     expect(deleteButton).not.toBeInTheDocument();
   });
+
+
+
+
+
+
 
   test("Has the expected colum headers and content for adminUser", () => {
     const currentUser = currentUserFixtures.adminUser;
@@ -241,9 +252,31 @@ describe("UserTable tests", () => {
     );
   });
 
+
+
+
+
+
+
   test("Delete button calls delete callback", async () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
+
+
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <MenuItemReviewsTable
+            review={
+                menuItemReviewsFixtures.threeReview
+            }
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
