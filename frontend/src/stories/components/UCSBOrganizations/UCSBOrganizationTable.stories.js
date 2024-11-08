@@ -16,26 +16,26 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-  UCSBOrganizations: [],
+  organizations: [],
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  UCSBOrganizations: ucsbOrganizationFixtures.threeOrganizations,
+    organizations: ucsbOrganizationFixtures.threeOrganizations,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  UCSBOrganizations: ucsbOrganizationFixtures.threeOrganizations,
+    organizations: ucsbOrganizationFixtures.threeOrganizations,
   currentUser: currentUserFixtures.adminUser,
 };
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/UCSBOrganizations", () => {
+    http.delete("/api/organizations", () => {
       return HttpResponse.json(
         { message: "Organization deleted successfully" },
         { status: 200 },
