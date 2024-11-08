@@ -23,13 +23,13 @@ Empty.args = {
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-    organizations: ucsbOrganizationFixtures.threeOrganizations,
+  organizations: ucsbOrganizationFixtures.threeOrganizations,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    organizations: ucsbOrganizationFixtures.threeOrganizations,
+  organizations: ucsbOrganizationFixtures.threeOrganizations,
   currentUser: currentUserFixtures.adminUser,
 };
 
