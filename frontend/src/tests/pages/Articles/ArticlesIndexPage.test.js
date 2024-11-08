@@ -59,7 +59,7 @@ describe("ArticlesIndexPage tests", () => {
         <MemoryRouter>
           <ArticlesIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
@@ -85,20 +85,20 @@ describe("ArticlesIndexPage tests", () => {
         <MemoryRouter>
           <ArticlesIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
     await waitFor(() => {
       expect(
-        screen.getByTestId(`${testId}-cell-row-0-col-id`)
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
       ).toHaveTextContent("1");
     });
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
-      "2"
+      "2",
     );
     expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
-      "3"
+      "3",
     );
 
     // assert that the Create button is not present when user isn't an admin
@@ -118,7 +118,7 @@ describe("ArticlesIndexPage tests", () => {
         <MemoryRouter>
           <ArticlesIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
@@ -128,12 +128,12 @@ describe("ArticlesIndexPage tests", () => {
 
     const errorMessage = console.error.mock.calls[0][0];
     expect(errorMessage).toMatch(
-      "Error communicating with backend via GET on /api/articles/all"
+      "Error communicating with backend via GET on /api/articles/all",
     );
     restoreConsole();
 
     expect(
-      screen.queryByTestId(`${testId}-cell-row-0-col-id`)
+      screen.queryByTestId(`${testId}-cell-row-0-col-id`),
     ).not.toBeInTheDocument();
   });
 
@@ -154,22 +154,22 @@ describe("ArticlesIndexPage tests", () => {
         <MemoryRouter>
           <ArticlesIndexPage />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     // assert
     await waitFor(() => {
       expect(
-        screen.getByTestId(`${testId}-cell-row-0-col-id`)
+        screen.getByTestId(`${testId}-cell-row-0-col-id`),
       ).toBeInTheDocument();
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
-      "1"
+      "1",
     );
 
     const deleteButton = screen.getByTestId(
-      `${testId}-cell-row-0-col-Delete-button`
+      `${testId}-cell-row-0-col-Delete-button`,
     );
     expect(deleteButton).toBeInTheDocument();
 

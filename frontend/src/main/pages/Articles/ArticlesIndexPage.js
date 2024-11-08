@@ -15,7 +15,8 @@ export default function ArticlesIndexPage() {
         <Button
           variant="primary"
           href="/articles/create"
-          style={{ float: "right" }}>
+          style={{ float: "right" }}
+        >
           Create Article
         </Button>
       );
@@ -30,7 +31,7 @@ export default function ArticlesIndexPage() {
     // Stryker disable next-line all : don't test internal caching of React Query
     ["/api/articles/all"],
     { method: "GET", url: "/api/articles/all" },
-    []
+    [],
   );
 
   return (
@@ -38,10 +39,7 @@ export default function ArticlesIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>Articles</h1>
-        <ArticlesTable
-          articles={articles}
-          currentUser={currentUser}
-        />
+        <ArticlesTable articles={articles} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );
