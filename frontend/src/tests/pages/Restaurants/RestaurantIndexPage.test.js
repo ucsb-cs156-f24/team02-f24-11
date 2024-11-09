@@ -62,7 +62,7 @@ describe("RestaurantIndexPage tests", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Create Restaurant/)).toBeInTheDocument();
+      expect(screen.getByText(/Create /)).toBeInTheDocument();
     });
     const button = screen.getByText(/Create Restaurant/);
     expect(button).toHaveAttribute("href", "/restaurants/create");
