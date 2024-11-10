@@ -26,7 +26,7 @@ export default function UCSBOrganizationIndexPage() {
       return (
         <Button
           variant="primary"
-          href="/organizations/create"
+          href="/ucsborganizations/create"
           style={{ float: "right" }}
         >
           Create Organization
@@ -40,7 +40,10 @@ export default function UCSBOrganizationIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>Organizations</h1>
-        <UCSBOrganizationTable organizations={organizations} currentUser={currentUser} />
+        <UCSBOrganizationTable
+          organizations={organizations}
+          currentUser={currentUser}
+        />
       </div>
     </BasicLayout>
   );
