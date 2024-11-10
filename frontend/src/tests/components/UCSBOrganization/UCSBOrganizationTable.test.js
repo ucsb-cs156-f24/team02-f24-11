@@ -247,7 +247,9 @@ describe("UCSBOrganizationTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganizations/edit/SKY"),
+      expect(mockedNavigate).toHaveBeenCalledWith(
+        "/ucsborganizations/edit/SKY",
+      ),
     );
   });
 
@@ -271,7 +273,7 @@ describe("UCSBOrganizationTable tests", () => {
         </MemoryRouter>
       </QueryClientProvider>,
     );
-    
+
     // assert - check that the expected content is rendered
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
