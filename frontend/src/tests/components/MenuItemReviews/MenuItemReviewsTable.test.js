@@ -69,6 +69,46 @@ describe("UserTable tests", () => {
 
 
 
+  test("renders table with correct column accessors and data", () => {
+    const currentUser = currentUserFixtures.adminUser;
+    const reviews = menuItemReviewsFixtures.threeReview;
+  
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <MenuItemReviewsTable
+            review={
+                menuItemReviewsFixtures.threeReview
+            }
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
+    );
+  
+    const expectedHeaders = [
+      { header: "id", accessor: "id" },
+      { header: "itemId", accessor: "itemId" },
+      { header: "reviewEmail", accessor: "reviewEmail" },
+      { header: "stars", accessor: "stars" },
+      { header: "dateReviewed", accessor: "dateReviewed" },
+      { header: "comments", accessor: "comments" },
+    ];
+  
+    expectedHeaders.forEach(({ header, accessor }, index) => {
+      // Check for header presence
+      const headerElement = screen.getByText(header);
+      expect(headerElement).toBeInTheDocument();
+  
+      // Check that the data in each column matches the expected accessor value
+      const cellElement = screen.getByTestId(`MenuItemReviewsTable-cell-row-0-col-${accessor}`);
+      expect(cellElement).toHaveTextContent(reviews[0][accessor]);
+    });
+  });
+  
+
+
+
 
   test("Has the expected column headers and content for ordinary user", () => {
     const currentUser = currentUserFixtures.userOnly;

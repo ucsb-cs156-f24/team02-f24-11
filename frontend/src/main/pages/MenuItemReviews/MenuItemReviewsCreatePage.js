@@ -17,8 +17,8 @@ export default function MenuItemReviewsCreatePage({ storybook = false }) {
     },
   });
 
-  const onSuccess = (ucsbDate) => {
-    toast(`New ucsbDate Created - id: ${ucsbDate.id} name: ${ucsbDate.name}`);
+  const onSuccess = (menuItemReviews) => {
+    toast(`New menuItemReviews Created - id: ${menuItemReviews.id} itemId: ${menuItemReviews.itemId}`);
   };
 
   const mutation = useBackendMutation(
@@ -41,7 +41,7 @@ export default function MenuItemReviewsCreatePage({ storybook = false }) {
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Create New MenuItemReview</h1>
+        <h1>Create New MenuItemReviews</h1>
 
         <MenuItemReviewsForm submitAction={onSubmit} />
       </div>

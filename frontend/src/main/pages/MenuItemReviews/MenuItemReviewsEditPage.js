@@ -42,7 +42,7 @@ export default function MenuItemReviewsEditPage({ storybook = false }) {
 
   const onSuccess = (menuItemReview) => {
     toast(
-      `MenuItemReviews Updated - id: ${menuItemReview.id} name: ${menuItemReview.name}`,
+      `MenuItemReviews Updated - id: ${menuItemReview.id} itemId: ${menuItemReview.itemId}`,
     );
   };
 
