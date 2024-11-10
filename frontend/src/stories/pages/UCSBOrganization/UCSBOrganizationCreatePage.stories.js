@@ -9,6 +9,7 @@ export default {
   title: "pages/UCSBOrganization/UCSBOrganizationCreatePage",
   component: UCSBOrganizationCreatePage,
 };
+
 const Template = () => <UCSBOrganizationCreatePage storybook={true} />;
 
 export const Default = Template.bind({});

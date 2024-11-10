@@ -247,7 +247,7 @@ describe("UCSBOrganizationTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/organizations/edit/SKY"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/ucsborganizations/edit/SKY"),
     );
   });
 
@@ -271,7 +271,7 @@ describe("UCSBOrganizationTable tests", () => {
         </MemoryRouter>
       </QueryClientProvider>,
     );
-
+    
     // assert - check that the expected content is rendered
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-orgCode`),
@@ -288,6 +288,6 @@ describe("UCSBOrganizationTable tests", () => {
     // assert - check that the delete endpoint was called
 
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
-    expect(axiosMock.history.delete[0].params.id).toBe("SKY");
+    expect(axiosMock.history.delete[0].params.orgCode).toBe("SKY");
   });
 });
