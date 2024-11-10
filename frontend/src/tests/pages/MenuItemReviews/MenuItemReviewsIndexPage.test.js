@@ -104,9 +104,9 @@ describe("MenuItemReviewsIndexPage tests", () => {
     expect(email).toBeInTheDocument();
 
     const comment = screen.getByText("great");
+    //const comment = screen.getAllByText("great");
     expect(comment).toBeInTheDocument();
 
-    // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
     expect(
       screen.queryByTestId("MenuItemReviewsTable-cell-row-0-col-Delete-button"),
     ).not.toBeInTheDocument();
