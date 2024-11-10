@@ -100,7 +100,8 @@ describe("MenuItemReviewsIndexPage tests", () => {
     );
     expect(createMenuItemReviewsButton).not.toBeInTheDocument();
 
-    const email = screen.getByText("test@gmail.com");
+    //const email = screen.getByText("test@gmail.com");
+    const email = screen.getByTestId("MenuItemReviewsTable-cell-row-2-col-reviewEmail")
     expect(email).toBeInTheDocument();
 
     const comment = screen.getByText("great");
