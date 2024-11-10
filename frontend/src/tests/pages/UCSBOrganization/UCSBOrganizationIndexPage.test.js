@@ -95,9 +95,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
       screen.getByTestId(`${testId}-cell-row-2-col-orgCode`),
     ).toHaveTextContent("KRC");
 
-    const createOrganizationButton = screen.queryByText(
-      "Create Organization Button",
-    );
+    const createOrganizationButton = screen.queryByText("Create Organization");
     expect(createOrganizationButton).not.toBeInTheDocument();
 
     const orgTranslationShort = screen.getByText("SKYDIVING CLUB");
