@@ -82,7 +82,9 @@ function HelpRequestForm({
 
         <Col>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="tableOrBreakoutRoom">TableOrBreakoutRoom</Form.Label>
+            <Form.Label htmlFor="tableOrBreakoutRoom">
+              TableOrBreakoutRoom
+            </Form.Label>
             <Form.Control
               data-testid="HelpRequestForm-tableOrBreakoutRoom"
               id="tableOrBreakoutRoom"
@@ -98,8 +100,6 @@ function HelpRequestForm({
           </Form.Group>
         </Col>
 
-    
-
         <Col>
           <Form.Group className="mb-3">
             <Form.Label htmlFor="requestTime">Date (iso format)</Form.Label>
@@ -114,7 +114,7 @@ function HelpRequestForm({
               })}
             />
             <Form.Control.Feedback type="invalid">
-              {errors.requestTime && "requestTime is required. "}
+              {errors.requestTime && "requestTime is required"}
             </Form.Control.Feedback>
           </Form.Group>
         </Col>
@@ -145,8 +145,7 @@ function HelpRequestForm({
               id="solved"
               type="checkbox"
               isInvalid={Boolean(errors.solved)}
-              {...register("solved", {
-              })}
+              {...register("solved", {})}
             />
             <Form.Control.Feedback type="invalid">
               {errors.solved?.message}

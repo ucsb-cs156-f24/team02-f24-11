@@ -17,7 +17,7 @@ describe("HelpRequestForm tests", () => {
         <HelpRequestForm />
       </Router>,
     );
-    await screen.findByText(/RequesterEmail/);
+    await screen.findByText(/requesterEmail/);
     await screen.findByText(/Create/);
   });
 
@@ -28,18 +28,20 @@ describe("HelpRequestForm tests", () => {
       </Router>,
     );
     await screen.findByTestId(/HelpRequestForm-id/);
-    expect(screen.getByText(/Id/)).toBeInTheDocument();
+    expect(screen.getByText(/requesterEmail/)).toBeInTheDocument(); // changed
     expect(screen.getByTestId(/HelpRequestForm-id/)).toHaveValue("1");
   });
 
-  test("Correct Error messsages on bad input", async () => {
+  test("Correct Error messages on bad input", async () => {
     render(
       <Router>
         <HelpRequestForm />
       </Router>,
     );
     await screen.findByTestId("HelpRequestForm-requesterEmail");
-    const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
+    const requesterEmailField = screen.getByTestId(
+      "HelpRequestForm-requesterEmail",
+    );
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
@@ -62,11 +64,15 @@ describe("HelpRequestForm tests", () => {
     fireEvent.click(submitButton);
 
     await screen.findByText(/RequesterEmail is required./);
-    expect(screen.getByText(/Name is required./)).toBeInTheDocument();
-    expect(screen.getByText(/LocalDateTime is required./)).toBeInTheDocument();
+    await screen.findByText(/teamId is required./);
+    await screen.findByText(/tableOrBreakoutRoom is required./);
+    await screen.findByText(/explanation is required./);
+    // await screen.findByText(/solved is required./);
+    // expect(screen.getByText(/Name is required./)).toBeInTheDocument();
+    expect(screen.getByText(/requestTime is required/)).toBeInTheDocument();
   });
 
-  test("No Error messsages on good input", async () => {
+  test("No Error messages on good input", async () => {
     const mockSubmitAction = jest.fn();
 
     render(
@@ -76,13 +82,32 @@ describe("HelpRequestForm tests", () => {
     );
     await screen.findByTestId("HelpRequestForm-requesterEmail");
 
-    const RequesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
-    const nameField = screen.getByTestId("HelpRequestForm-name");
+    const RequesterEmailField = screen.getByTestId(
+      "HelpRequestForm-requesterEmail",
+    );
+    // const nameField = screen.getByTestId("HelpRequestForm-name");
     const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
+    const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
+
+    const tableOrBreakoutRoomField = screen.getByTestId(
+      "HelpRequestForm-tableOrBreakoutRoom",
+    );
+
+    const explanationField = screen.getByTestId("HelpRequestForm-explanation");
+
+    const solvedField = screen.getByTestId("HelpRequestForm-solved");
+
     const submitButton = screen.getByTestId("HelpRequestForm-submit");
 
     fireEvent.change(RequesterEmailField, { target: { value: "20221" } });
-    fireEvent.change(nameField, { target: { value: "noon on January 2nd" } });
+    fireEvent.change(teamIdField, { target: { value: "12345" } });
+
+    fireEvent.change(tableOrBreakoutRoomField, { target: { value: "Table" } });
+    fireEvent.change(explanationField, { target: { value: "Monkeys" } });
+
+    fireEvent.change(solvedField, { target: { value: "True" } });
+
+    // fireEvent.change(nameField, { target: { value: "noon on January 2nd" } });
     fireEvent.change(requestTimeField, {
       target: { value: "2022-01-02T12:00" },
     });
@@ -112,4 +137,3 @@ describe("HelpRequestForm tests", () => {
     await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
   });
 });
-
