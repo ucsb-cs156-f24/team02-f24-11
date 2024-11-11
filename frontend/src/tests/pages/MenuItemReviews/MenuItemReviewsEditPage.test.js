@@ -239,7 +239,6 @@ describe("MenuItemReviewsEditPage tests", () => {
   });
 });
 
-
 // import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 // import { QueryClient, QueryClientProvider } from "react-query";
 // import { MemoryRouter } from "react-router-dom";
@@ -414,7 +413,7 @@ describe("MenuItemReviewsEditPage tests", () => {
 //             stars: "6",
 //             dateReviewed: "2024-11-03T12:01",
 //             comments: "cool",
-          
+
 //         }),
 //       );
 //     });
@@ -458,10 +457,6 @@ describe("MenuItemReviewsEditPage tests", () => {
 //       expect(dateReviewedField).toHaveValue("2024-11-03T12:00");
 //       expect(commentsField).toHaveValue("great");
 //       expect(submitButton).toBeInTheDocument();
-
-
-
-
 
 //       fireEvent.change(itemIdField, { target: { value: "5" } });
 //       fireEvent.change(reviewEmailField, {

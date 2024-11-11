@@ -75,9 +75,7 @@ describe("MenuItemReviewsCreatePage tests", () => {
       comments: "great",
     };
 
-    axiosMock
-      .onPost("/api/menuitemreview/post")
-      .reply(200, menuitemreviews);
+    axiosMock.onPost("/api/menuitemreview/post").reply(200, menuitemreviews);
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -93,9 +91,6 @@ describe("MenuItemReviewsCreatePage tests", () => {
       ).toBeInTheDocument();
     });
 
-    
-    
-    
     const itemIDInput = screen.getByLabelText("Item ID");
     const revEmailInput = screen.getByLabelText("Reviewer Email");
     const starsInput = screen.getByLabelText("Stars");
@@ -119,13 +114,11 @@ describe("MenuItemReviewsCreatePage tests", () => {
       target: { value: menuitemreviews.stars },
     });
     fireEvent.change(dateInput, {
-        target: { value: menuitemreviews.dateReviewed },
+      target: { value: menuitemreviews.dateReviewed },
     });
     fireEvent.change(commentsInput, {
-        target: { value: menuitemreviews.comments },
+      target: { value: menuitemreviews.comments },
     });
-
-
 
     fireEvent.click(createButton);
 
@@ -133,8 +126,6 @@ describe("MenuItemReviewsCreatePage tests", () => {
       expect(axiosMock.history.post.length).toBe(1);
     });
     expect(axiosMock.history.post[0].params).toEqual({
-     
-
       itemId: menuitemreviews.itemId,
       reviewEmail: menuitemreviews.reviewEmail,
       stars: menuitemreviews.stars,

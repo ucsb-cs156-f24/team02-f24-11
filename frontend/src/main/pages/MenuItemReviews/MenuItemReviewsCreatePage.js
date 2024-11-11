@@ -18,7 +18,9 @@ export default function MenuItemReviewsCreatePage({ storybook = false }) {
   });
 
   const onSuccess = (menuItemReviews) => {
-    toast(`New menuItemReviews Created - id: ${menuItemReviews.id} itemId: ${menuItemReviews.itemId}`);
+    toast(
+      `New menuItemReviews Created - id: ${menuItemReviews.id} itemId: ${menuItemReviews.itemId}`,
+    );
   };
 
   const mutation = useBackendMutation(

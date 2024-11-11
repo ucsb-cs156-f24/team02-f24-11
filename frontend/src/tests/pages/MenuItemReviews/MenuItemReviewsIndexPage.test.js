@@ -101,7 +101,9 @@ describe("MenuItemReviewsIndexPage tests", () => {
     expect(createMenuItemReviewsButton).not.toBeInTheDocument();
 
     //const email = screen.getByText("test@gmail.com");
-    const email = screen.getByTestId("MenuItemReviewsTable-cell-row-2-col-reviewEmail")
+    const email = screen.getByTestId(
+      "MenuItemReviewsTable-cell-row-2-col-reviewEmail",
+    );
     expect(email).toBeInTheDocument();
 
     const comment = screen.getByText("great");
@@ -142,9 +144,6 @@ describe("MenuItemReviewsIndexPage tests", () => {
     restoreConsole();
   });
 
-
-
-  
   // test("what happens when you click delete, admin", async () => {
   //   setupAdminUser();
 
@@ -184,7 +183,6 @@ describe("MenuItemReviewsIndexPage tests", () => {
   //     expect(mockToast).toBeCalledWith("MenuItemReviews with id 1 was deleted");
   //   });
   // });
-
 
   test("what happens when you click delete, admin", async () => {
     setupAdminUser();
@@ -232,9 +230,4 @@ describe("MenuItemReviewsIndexPage tests", () => {
     expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreview");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
-
-
-
-
-  
 });

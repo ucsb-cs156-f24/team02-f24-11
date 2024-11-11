@@ -26,9 +26,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-              menuItemReviewsFixtures.threeReview
-          }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -36,12 +34,12 @@ describe("UserTable tests", () => {
     );
 
     const expectedHeaders = [
-        "id",
-        "itemId",
-        "reviewEmail",
-        "stars",
-        "dateReviewed",
-        "comments",
+      "id",
+      "itemId",
+      "reviewEmail",
+      "stars",
+      "dateReviewed",
+      "comments",
     ];
     const expectedFields = [
       "id",
@@ -67,25 +65,21 @@ describe("UserTable tests", () => {
     });
   });
 
-
-
   test("renders table with correct column accessors and data", () => {
     const currentUser = currentUserFixtures.adminUser;
     const reviews = menuItemReviewsFixtures.threeReview;
-  
+
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-                menuItemReviewsFixtures.threeReview
-            }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
       </QueryClientProvider>,
     );
-  
+
     const expectedHeaders = [
       { header: "id", accessor: "id" },
       { header: "itemId", accessor: "itemId" },
@@ -94,21 +88,19 @@ describe("UserTable tests", () => {
       { header: "dateReviewed", accessor: "dateReviewed" },
       { header: "comments", accessor: "comments" },
     ];
-  
+
     expectedHeaders.forEach(({ header, accessor }) => {
       // Check for header presence
       const headerElement = screen.getByText(header);
       expect(headerElement).toBeInTheDocument();
-  
+
       // Check that the data in each column matches the expected accessor value
-      const cellElement = screen.getByTestId(`MenuItemReviewsTable-cell-row-0-col-${accessor}`);
+      const cellElement = screen.getByTestId(
+        `MenuItemReviewsTable-cell-row-0-col-${accessor}`,
+      );
       expect(cellElement).toHaveTextContent(reviews[0][accessor]);
     });
   });
-  
-
-
-
 
   test("Has the expected column headers and content for ordinary user", () => {
     const currentUser = currentUserFixtures.userOnly;
@@ -117,9 +109,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-                menuItemReviewsFixtures.threeReview
-            }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -127,12 +117,12 @@ describe("UserTable tests", () => {
     );
 
     const expectedHeaders = [
-        "id",
-        "itemId",
-        "reviewEmail",
-        "stars",
-        "dateReviewed",
-        "comments",
+      "id",
+      "itemId",
+      "reviewEmail",
+      "stars",
+      "dateReviewed",
+      "comments",
     ];
     const expectedFields = [
       "id",
@@ -179,12 +169,6 @@ describe("UserTable tests", () => {
     expect(deleteButton).not.toBeInTheDocument();
   });
 
-
-
-
-
-
-
   test("Has the expected colum headers and content for adminUser", () => {
     const currentUser = currentUserFixtures.adminUser;
 
@@ -192,9 +176,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-                menuItemReviewsFixtures.threeReview
-            }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -202,12 +184,12 @@ describe("UserTable tests", () => {
     );
 
     const expectedHeaders = [
-        "id",
-        "itemId",
-        "reviewEmail",
-        "stars",
-        "dateReviewed",
-        "comments",
+      "id",
+      "itemId",
+      "reviewEmail",
+      "stars",
+      "dateReviewed",
+      "comments",
     ];
     const expectedFields = [
       "id",
@@ -263,9 +245,7 @@ describe("UserTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-                menuItemReviewsFixtures.threeReview
-            }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -286,37 +266,24 @@ describe("UserTable tests", () => {
     fireEvent.click(editButton);
 
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith(
-        "/menuitemreviews/edit/1",
-      ),
+      expect(mockedNavigate).toHaveBeenCalledWith("/menuitemreviews/edit/1"),
     );
   });
-
-
-
-
-
-
 
   test("Delete button calls delete callback", async () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
-
-
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewsTable
-            review={
-                menuItemReviewsFixtures.threeReview
-            }
+            review={menuItemReviewsFixtures.threeReview}
             currentUser={currentUser}
           />
         </MemoryRouter>
       </QueryClientProvider>,
     );
-
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
@@ -324,7 +291,6 @@ describe("UserTable tests", () => {
       .reply(200, { message: "Menu Item Review deleted" });
 
     // act - render the component
-
 
     // assert - check that the expected content is rendered
 
