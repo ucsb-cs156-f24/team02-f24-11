@@ -93,7 +93,7 @@ describe("MenuItemReviewsForm tests", () => {
       "MenuItemReviewsForm-dateReviewed",
     );
     const commentsField = screen.getByTestId("MenuItemReviewsForm-comments");
-    //const doneField = screen.getByTestId("MenuItemReviewsForm-done");
+
     const submitButton = screen.getByTestId("MenuItemReviewsForm-submit");
     fireEvent.change(itemIdField, {
       target: { value: "4" },
