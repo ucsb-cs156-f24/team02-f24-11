@@ -142,6 +142,50 @@ describe("MenuItemReviewsIndexPage tests", () => {
     restoreConsole();
   });
 
+
+
+  
+  // test("what happens when you click delete, admin", async () => {
+  //   setupAdminUser();
+
+  //   axiosMock
+  //     .onGet("/api/menuitemreview/all")
+  //     .reply(200, menuItemReviewsFixtures.threeReview);
+  //   axiosMock
+  //     .onDelete("/api/menuitemreview")
+  //     .reply(200, "MenuItemReviews with id 1 was deleted");
+
+  //   render(
+  //     <QueryClientProvider client={queryClient}>
+  //       <MemoryRouter>
+  //         <MenuItemReviewsIndexPage />
+  //       </MemoryRouter>
+  //     </QueryClientProvider>,
+  //   );
+
+  //   await waitFor(() => {
+  //     expect(
+  //       screen.getByTestId(`${testId}-cell-row-0-col-id`),
+  //     ).toBeInTheDocument();
+  //   });
+
+  //   expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
+  //     "1",
+  //   );
+
+  //   const deleteButton = screen.getByTestId(
+  //     `${testId}-cell-row-0-col-Delete-button`,
+  //   );
+  //   expect(deleteButton).toBeInTheDocument();
+
+  //   fireEvent.click(deleteButton);
+
+  //   await waitFor(() => {
+  //     expect(mockToast).toBeCalledWith("MenuItemReviews with id 1 was deleted");
+  //   });
+  // });
+
+
   test("what happens when you click delete, admin", async () => {
     setupAdminUser();
 
@@ -188,4 +232,9 @@ describe("MenuItemReviewsIndexPage tests", () => {
     expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreview");
     expect(axiosMock.history.delete[0].params).toEqual({ id: 1 });
   });
+
+
+
+
+  
 });
