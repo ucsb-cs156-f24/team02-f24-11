@@ -31,8 +31,22 @@ describe("UserTable tests", () => {
       </QueryClientProvider>,
     );
 
-    const expectedHeaders = ["id", "RequesterEmail", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
-    const expectedFields = ["id", "requesterEmail", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+    const expectedHeaders = [
+      "id",
+      "RequesterEmail",
+      "TableOrBreakoutRoom",
+      "RequestTime",
+      "Explanation",
+      "Solved",
+    ];
+    const expectedFields = [
+      "id",
+      "requesterEmail",
+      "tableOrBreakoutRoom",
+      "requestTime",
+      "explanation",
+      "solved",
+    ];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -77,8 +91,22 @@ describe("UserTable tests", () => {
       </QueryClientProvider>,
     );
 
-    const expectedHeaders = ["id", "RequesterEmail", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
-    const expectedFields = ["id", "requesterEmail", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+    const expectedHeaders = [
+      "id",
+      "RequesterEmail",
+      "TableOrBreakoutRoom",
+      "RequestTime",
+      "Explanation",
+      "Solved",
+    ];
+    const expectedFields = [
+      "id",
+      "requesterEmail",
+      "tableOrBreakoutRoom",
+      "requestTime",
+      "explanation",
+      "solved",
+    ];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {

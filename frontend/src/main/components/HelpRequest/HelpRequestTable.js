@@ -5,7 +5,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/UCSBDateUtils";
+} from "main/utils/HelpRequestUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
@@ -40,6 +40,10 @@ export default function HelpRequestTable({ dates, currentUser }) {
       accessor: "requesterEmail",
     },
     {
+      Header: "TeamId",
+      accessor: "teamId",
+    },
+    {
       Header: "TableOrBreakoutRoom",
       accessor: "tableOrBreakoutRoom",
     },
@@ -48,12 +52,12 @@ export default function HelpRequestTable({ dates, currentUser }) {
       accessor: "requestTime",
     },
     {
-        Header: "Explanation",
-        accessor: "explanation",
+      Header: "Explanation",
+      accessor: "explanation",
     },
     {
-        Header: "Solved",
-        accessor: "solved",
+      Header: "Solved",
+      accessor: "solved",
     },
   ];
 
@@ -66,5 +70,7 @@ export default function HelpRequestTable({ dates, currentUser }) {
     );
   }
 
-  return <OurTable data={dates} columns={columns} testid={"HelpRequestTable"} />;
+  return (
+    <OurTable data={dates} columns={columns} testid={"HelpRequestTable"} />
+  );
 }

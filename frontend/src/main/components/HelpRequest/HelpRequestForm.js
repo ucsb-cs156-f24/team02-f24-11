@@ -89,7 +89,7 @@ function HelpRequestForm({
               data-testid="HelpRequestForm-tableOrBreakoutRoom"
               id="tableOrBreakoutRoom"
               type="text"
-              isInvalid={Boolean(errors.teamId)}
+              isInvalid={Boolean(errors.tableOrBreakoutRoom)}
               {...register("tableOrBreakoutRoom", {
                 required: "tableOrBreakoutRoom is required.",
               })}
@@ -126,7 +126,7 @@ function HelpRequestForm({
               data-testid="HelpRequestForm-explanation"
               id="explanation"
               type="text"
-              isInvalid={Boolean(errors.requesterEmail)}
+              isInvalid={Boolean(errors.explanation)}
               {...register("explanation", {
                 required: "explanation is required.",
               })}
