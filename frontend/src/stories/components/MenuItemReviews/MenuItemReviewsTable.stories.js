@@ -5,7 +5,7 @@ import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
-  title: "components/MenuItemReviews/MenuItemReviewTable",
+  title: "components/MenuItemReviews/MenuItemReviewsTable",
   component: MenuItemReviewsTable,
 };
 
