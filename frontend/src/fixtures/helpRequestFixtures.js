@@ -9,7 +9,7 @@ const helpRequestFixtures = {
   },
   threeDates: [
     {
-      id: 2,
+      id: 1,
       requesterEmail: "monkey1@ucsb.edu",
       teamId: "12345",
       requestTime: "2022-01-02T12:00:00",
@@ -17,7 +17,7 @@ const helpRequestFixtures = {
       solved: true,
     },
     {
-      id: 3,
+      id: 2,
       requesterEmail: "monkey2@ucsb.edu",
       teamId: "123456",
       requestTime: "2022-01-03T12:00:00",
@@ -25,7 +25,7 @@ const helpRequestFixtures = {
       solved: true,
     },
     {
-      id: 4,
+      id: 3,
       requesterEmail: "monkey3@ucsb.edu",
       teamId: "123457",
       requestTime: "2022-01-05T12:00:00",
