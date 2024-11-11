@@ -95,7 +95,7 @@ describe("UserTable tests", () => {
       { header: "comments", accessor: "comments" },
     ];
   
-    expectedHeaders.forEach(({ header, accessor }, index) => {
+    expectedHeaders.forEach(({ header, accessor }) => {
       // Check for header presence
       const headerElement = screen.getByText(header);
       expect(headerElement).toBeInTheDocument();
