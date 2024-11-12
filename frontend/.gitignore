@@ -37,3 +37,6 @@ yarn-error.log*
 .stryker-tmp
 
 *storybook.log
+../.stryker-tmp/
+../node_modules/
+../package.json
