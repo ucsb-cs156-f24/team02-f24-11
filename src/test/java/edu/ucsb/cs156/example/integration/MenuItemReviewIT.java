@@ -99,7 +99,7 @@ public class MenuItemReviewIT {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/menuitemreview/post?itemId=6&reviewEmail=test@ucsb.edu&stars=3&dateReviewed=2022-01-03T00:00:00&comments=bad")
+                                post("/api/menuitemreview/post?id=1&itemId=6&reviewEmail=test@ucsb.edu&stars=3&dateReviewed=2022-01-03T00:00:00&comments=bad")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
