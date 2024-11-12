@@ -32,9 +32,9 @@ describe("UCSBOrganizationUtils tests", () => {
 
       // Assert
       expect(result).toEqual({
-        url: "/api/organizations",
+        url: "/api/ucsborganizations",
         method: "DELETE",
-        params: { id: "SKY" },
+        params: { orgCode: "SKY" },
       });
     });
   });
