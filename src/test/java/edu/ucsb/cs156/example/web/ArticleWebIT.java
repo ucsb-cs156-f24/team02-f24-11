@@ -23,8 +23,8 @@ public class ArticleWebIT extends WebTestCase {
 
         page.getByText("Article").click();
 
-        page.getByText("Create New Articles").click();
-        assertThat(page.getByText("Create New Articles")).isVisible();
+        page.getByText("Create Article").click();
+        assertThat(page.getByText("Create New Article")).isVisible();
         page.getByTestId("ArticleForm-title").fill("New article");
         page.getByTestId("ArticleForm-url").fill("New url");
         page.getByTestId("ArticleForm-explanation").fill("New explanation");
@@ -53,7 +53,7 @@ public class ArticleWebIT extends WebTestCase {
 
         page.getByText("Articles").click();
 
-        assertThat(page.getByText("Create New Articles")).not().isVisible();
+        assertThat(page.getByText("Create Article")).not().isVisible();
         assertThat(page.getByTestId("ArticleTable-cell-row-0-col-title")).not().isVisible();
     }
 }
