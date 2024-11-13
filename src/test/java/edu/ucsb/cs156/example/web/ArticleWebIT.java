@@ -21,7 +21,7 @@ public class ArticleWebIT extends WebTestCase {
     public void admin_user_can_create_edit_delete_article() throws Exception {
         setupUser(true);
 
-        page.getByText("Articles").click();
+        page.getByText("Article").click();
 
         page.getByText("Create New Article").click();
         assertThat(page.getByText("Create New Article")).isVisible();
