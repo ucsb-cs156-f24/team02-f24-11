@@ -68,7 +68,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase{
     @Test
     public void admin_can_post_a_new_review() throws Exception {
         MenuItemReviews review = MenuItemReviews.builder()
-                .id(10)
+                //.id(10)
                 .itemId(3)
                 .reviewEmail("johnlins@ucsb.edu")
                 .stars(4)
@@ -78,7 +78,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase{
 
         when(menuItemReviewsRepository.save(eq(review))).thenReturn(review);
 
-        MvcResult response = mockMvc.perform(post("/api/menuitemreview/post?id=10&itemId=3&reviewEmail=johnlins@ucsb.edu&stars=4&dateReviewed=2022-01-03T00:00:00&comments=very good")
+        MvcResult response = mockMvc.perform(post("/api/menuitemreview/post?itemId=3&reviewEmail=johnlins@ucsb.edu&stars=4&dateReviewed=2022-01-03T00:00:00&comments=very good")
                         .with(csrf()))
                 .andExpect(status().isOk()).andReturn();
 
