@@ -29,7 +29,7 @@ public class ArticleWebIT extends WebTestCase {
         page.getByTestId("ArticleForm-url").fill("New url");
         page.getByTestId("ArticleForm-explanation").fill("New explanation");
         page.getByTestId("ArticleForm-email").fill("New email");
-        page.getByTestId("ArticleForm-dateAdded").fill("2022-01-03T00:00:00");
+        page.getByTestId("ArticleForm-dateAdded").fill("2022-01-03T00:00");
         page.getByTestId("ArticleForm-submit").click();
 
         assertThat(page.getByTestId("ArticleTable-cell-row-0-col-url"))
