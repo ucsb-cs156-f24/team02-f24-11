@@ -53,7 +53,7 @@ import java.time.LocalDateTime;
     @PostMapping(&quot;/post&quot;)
 
     public MenuItemReviews createMenuItemReview(
-            @Parameter(name=&quot;id&quot;) @RequestParam long id,
+            //@Parameter(name=&quot;id&quot;) @RequestParam long id,
             @Parameter(name=&quot;itemId&quot;) @RequestParam long itemId,
             @Parameter(name=&quot;reviewEmail&quot;) @RequestParam String reviewEmail,
             @Parameter(name=&quot;stars&quot;) @RequestParam int stars,
@@ -65,7 +65,7 @@ import java.time.LocalDateTime;
 
 
 <span class="fc" id="L67">        MenuItemReviews menuItemReviewRequest = new MenuItemReviews();</span>
-<span class="fc" id="L68">        menuItemReviewRequest.setId(id);</span>
+        //menuItemReviewRequest.setId(id);
 <span class="fc" id="L69">        menuItemReviewRequest.setItemId(itemId);</span>
 <span class="fc" id="L70">        menuItemReviewRequest.setReviewEmail(reviewEmail);</span>
 <span class="fc" id="L71">        menuItemReviewRequest.setStars(stars);</span>
