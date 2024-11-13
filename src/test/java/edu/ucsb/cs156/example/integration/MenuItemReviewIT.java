@@ -66,7 +66,7 @@ public class MenuItemReviewIT {
                                 .itemId(4L)
                                 .reviewEmail("email@ucsb.edu")
                                 .stars(4)
-                                .dateReviewed(LocalDateTime.parse("2022-01-03T00:10:00"))
+                                .dateReviewed(LocalDateTime.parse("2022-01-03T00:10"))
                                 .comments("great")
                                 .build();
 
@@ -93,13 +93,13 @@ public class MenuItemReviewIT {
                                 .itemId(6L)
                                 .reviewEmail("test@ucsb.edu")
                                 .stars(3)
-                                .dateReviewed(LocalDateTime.parse("2022-01-03T00:00:00"))
+                                .dateReviewed(LocalDateTime.parse("2022-01-03T00:00"))
                                 .comments("bad")
                                 .build();
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/menuitemreview/post?id=1&itemId=6&reviewEmail=test@ucsb.edu&stars=3&dateReviewed=2022-01-03T00:00:00&comments=bad")
+                                post("/api/menuitemreview/post?id=1&itemId=6&reviewEmail=test@ucsb.edu&stars=3&dateReviewed=2022-01-03T00:00&comments=bad")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 

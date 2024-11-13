@@ -65,7 +65,7 @@ public class MenuItemReviewWebIT extends WebTestCase {
         assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-itemId")).hasText("4");
         assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-reviewEmail")).hasText("test@ucsb.edu");
         assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-stars")).hasText("4");
-        assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-dateReviewed")).hasText("2022-01-03T00:10");
+        assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-dateReviewed")).hasText("2022-01-03T00:10:00");
         assertThat(page.getByTestId("MenuItemReviewsTable-cell-row-0-col-comments")).hasText("better");
 
         page.getByTestId("MenuItemReviewsTable-cell-row-0-col-Delete-button").click();
